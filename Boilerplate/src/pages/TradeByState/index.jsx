@@ -202,7 +202,8 @@ export default function TradeByStatePage() {
 
         <SectionBlock alt>
           <ChartCard title="State Trade Details" subtitle={`${tableData.length} states`}
-            className="w-full mx-auto"
+            className="w-fit mx-auto h-auto"
+            minHeight={0}
             downloadData={{ summary: { data: tableData, filename: 'state-details-summary' }, detail: { data: filtered, filename: 'state-details' } }}>
             <DataTable
               columns={[

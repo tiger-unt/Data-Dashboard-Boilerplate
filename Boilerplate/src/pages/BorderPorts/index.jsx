@@ -261,7 +261,8 @@ export default function BorderPortsPage() {
 
         <SectionBlock>
           <ChartCard title="Port Detail" subtitle={`${tableData.length} ports of entry`}
-            className=""
+            className="w-fit mx-auto h-auto"
+            minHeight={0}
             downloadData={{ summary: { data: tableData, filename: 'port-detail-summary' }, detail: { data: filtered, filename: 'port-detail' } }}>
             <DataTable
               columns={[

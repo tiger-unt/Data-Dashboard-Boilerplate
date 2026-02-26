@@ -216,7 +216,8 @@ export default function TradeByCommodityPage() {
 
         <SectionBlock alt>
           <ChartCard title="Commodity Detail" subtitle={`Top ${tableData.length} commodities`}
-            className="w-full mx-auto"
+            className="w-fit mx-auto h-auto"
+            minHeight={0}
             downloadData={{ summary: { data: tableData, filename: 'commodity-detail-summary' }, detail: { data: filtered, filename: 'commodity-detail' } }}>
             <DataTable
               columns={[

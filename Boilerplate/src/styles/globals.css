@@ -273,17 +273,20 @@
     height: 100%;
   }
 
-  /* DataTable in fullscreen: keep normal-view width, fill available height.
-     Override the generic "> * > div { height:100% }" which breaks flex layout
-     by forcing both scroll-area and pagination to 100% height. */
+  /* DataTable in fullscreen: auto-width (content-sized columns, centered),
+     max-height so rows paginate at the viewport boundary but small tables
+     don't stretch with empty space below the last row.
+     Must override the generic "> * > div { height:100% }" rule which
+     breaks flex layout by forcing both scroll-area and pagination to 100%. */
   .fullscreen-chart-area .data-table-root {
+    flex: 0 1 auto !important;
     width: fit-content !important;
+    max-width: 100%;
+    height: auto !important;
+    max-height: 100%;
   }
   .fullscreen-chart-area .data-table-root > div {
     height: unset !important;
-  }
-  .fullscreen-chart-area .data-table-scroll {
-    max-height: none !important;
   }
 
   /* Fullscreen chart enhancements — thicker strokes for presence.

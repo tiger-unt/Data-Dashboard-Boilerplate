@@ -48,23 +48,27 @@ export default function DataTable({ columns, data, pageSize: fixedPageSize }) {
   const [dynamicPageSize, setDynamicPageSize] = useState(fixedPageSize || DEFAULT_PAGE_SIZE)
   const rootRef = useRef(null)
 
-  // In fullscreen the container height is constrained by the viewport flex layout,
-  // so we can measure it and fit as many rows as possible. In normal mode the
-  // container is unconstrained (grows with content), so we use a sensible default.
+  // In fullscreen, fit as many rows as the viewport allows (using the
+  // fullscreen overlay's height, not the table's own auto-height).
+  // In normal mode use a sensible default page size.
   const recalcPageSize = useCallback(() => {
     if (fixedPageSize) return
     const el = rootRef.current
     if (!el) return
 
-    const isFullscreen = !!el.closest('.fullscreen-chart-area')
-    if (!isFullscreen) {
+    const fsArea = el.closest('.fullscreen-chart-area')
+    if (!fsArea) {
       setDynamicPageSize(DEFAULT_PAGE_SIZE)
       return
     }
 
-    const available = el.clientHeight
+    // Subtract the fullscreen area's padding so we only count usable space
+    const style = getComputedStyle(fsArea)
+    const padY = (parseFloat(style.paddingTop) || 0) + (parseFloat(style.paddingBottom) || 0)
+    const available = fsArea.clientHeight - padY
     if (available <= 0) return
-    const bodySpace = available - HEADER_HEIGHT - FOOTER_HEIGHT
+    // 2 extra px for the DataTable's own top+bottom border
+    const bodySpace = available - HEADER_HEIGHT - FOOTER_HEIGHT - 2
     const rows = Math.max(1, Math.floor(bodySpace / ROW_HEIGHT))
     setDynamicPageSize(rows)
   }, [fixedPageSize])
@@ -75,6 +79,8 @@ export default function DataTable({ columns, data, pageSize: fixedPageSize }) {
     if (!el) return
     const ro = new ResizeObserver(recalcPageSize)
     ro.observe(el)
+    const fsArea = el.closest('.fullscreen-chart-area')
+    if (fsArea) ro.observe(fsArea)
     return () => ro.disconnect()
   }, [recalcPageSize])
 
@@ -124,7 +130,10 @@ export default function DataTable({ columns, data, pageSize: fixedPageSize }) {
 
   return (
     <div ref={rootRef} className="data-table-root bg-white rounded-xl border border-border-light shadow-xs overflow-hidden flex flex-col mx-auto w-fit max-w-full">
-      <div className="overflow-x-auto overflow-y-hidden flex-1 min-h-0 data-table-scroll">
+      <div
+        className="overflow-x-auto overflow-y-hidden flex-1 min-h-0 data-table-scroll"
+        style={totalPages > 1 ? { minHeight: HEADER_HEIGHT + pageSize * ROW_HEIGHT } : undefined}
+      >
         <table className="text-base">
           <thead className="sticky top-0 z-10">
             <tr className="bg-surface-alt border-b border-border">

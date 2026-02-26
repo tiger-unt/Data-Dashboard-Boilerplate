@@ -229,7 +229,8 @@ export default function TradeByModePage() {
 
         <SectionBlock alt>
           <ChartCard title="Mode Detail" subtitle="Exports and imports by transportation mode"
-            className="w-full mx-auto"
+            className="w-fit mx-auto h-auto"
+            minHeight={0}
             downloadData={{ summary: { data: modeByTradeType, filename: 'mode-detail-summary' }, detail: { data: filtered, filename: 'mode-detail' } }}>
             <DataTable
               columns={[
