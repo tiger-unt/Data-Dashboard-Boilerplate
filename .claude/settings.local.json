@@ -38,7 +38,8 @@
       "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-mobile/**)",
       "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-tablet/**)",
       "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-desktop-sm/**)",
-      "WebFetch(domain:tiger-unt.github.io)"
+      "WebFetch(domain:tiger-unt.github.io)",
+      "Bash(gh api:*)"
     ],
     "additionalDirectories": [
       "x:\\TxDOT IAC 2025-26 - General\\Task 1 - Bridges and Border Crossings Guide\\Task 1.4 - 2026 Bridge WebApp\\assets\\Logos",

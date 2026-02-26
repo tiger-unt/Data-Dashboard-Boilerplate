@@ -5,6 +5,7 @@ Vite + React 19 + Tailwind CSS v4 + D3.js v7 + Crossfilter2 + Zustand + React Ro
 
 ## Design Rules
 - **Minimum font size**: 16px throughout the entire site. No text should be smaller than 16px.
+- **DataTable sizing**: Tables must NOT be full-width. Use `w-fit max-w-full mx-auto` on the root container so columns size to their content and the table is centered. Do NOT add `w-full` to the DataTable root or the `<table>` element.
 
 ## Dev Server
 - **Start**: `cd "C:/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/Boilerplate" && npm run dev`
