@@ -123,7 +123,7 @@ export default function DataTable({ columns, data, pageSize: fixedPageSize }) {
   }
 
   return (
-    <div ref={rootRef} className="data-table-root bg-white rounded-xl border border-border-light shadow-xs overflow-hidden flex flex-col h-full mx-auto w-fit max-w-full">
+    <div ref={rootRef} className="data-table-root bg-white rounded-xl border border-border-light shadow-xs overflow-hidden flex flex-col mx-auto w-fit max-w-full">
       <div className="overflow-x-auto overflow-y-hidden flex-1 min-h-0 data-table-scroll">
         <table className="text-base">
           <thead className="sticky top-0 z-10">
