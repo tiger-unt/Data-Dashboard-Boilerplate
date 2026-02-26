@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:play.grafana.org)",
+      "WebFetch(domain:public.tableau.com)",
+      "Bash(python3:*)",
+      "Read(//x/tmp/**)",
+      "Bash(unzip:*)",
+      "Bash(done)",
+      "Read(//tmp/**)",
+      "Bash(head:*)",
+      "Bash(node --version:*)",
+      "Bash(npm --version:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npx vite build:*)",
+      "Bash(net use:*)",
+      "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/Boilerplate/**)",
+      "Bash(npx vite:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl:*)",
+      "Read(//x/TxDOT IAC 2025-26 - General/**)",
+      "Bash(npx -y playwright@latest --version:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(npm root:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm init:*)",
+      "Bash(npm run build:*)",
+      "Skill(visual-check)",
+      "Skill(visual-check:*)",
+      "Bash(npm run dev:*)",
+      "Bash(netstat:*)",
+      "Bash(kill:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(stat:*)",
+      "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-mobile/**)",
+      "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-tablet/**)",
+      "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-desktop-sm/**)"
+    ],
+    "additionalDirectories": [
+      "x:\\TxDOT IAC 2025-26 - General\\Task 1 - Bridges and Border Crossings Guide\\Task 1.4 - 2026 Bridge WebApp\\assets\\Logos",
+      "x:\\TxDOT IAC 2025-26 - General\\Data-Dashboard-Boilerplate\\.claude",
+      "x:\\TxDOT IAC 2025-26 - General\\Data-Dashboard-Boilerplate\\$HOME\\.claude\\skills\\visual-check",
+      "C:\\Users\\UNT\\.claude\\skills\\visual-check\\scripts",
+      "C:\\Users\\UNT\\.claude\\skills\\visual-check",
+      "C:\\Users\\UNT\\UNT System\\TxDOT IAC 2025-26 - General\\Data-Dashboard-Boilerplate\\Boilerplate"
+    ]
+  }
+}

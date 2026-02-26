@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Read(//c/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/screenshots-mobile/**)"
+    ]
+  }
+}

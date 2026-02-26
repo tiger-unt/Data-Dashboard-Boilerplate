@@ -1,0 +1,59 @@
+# TxDOT Data Dashboard Boilerplate
+
+## Project Overview
+Vite + React 19 + Tailwind CSS v4 + D3.js v7 + Crossfilter2 + Zustand + React Router v6 dashboard for TxDOT trade data visualization.
+
+## Design Rules
+- **Minimum font size**: 16px throughout the entire site. No text should be smaller than 16px.
+
+## Dev Server
+- **Start**: `cd "C:/Users/UNT/UNT System/TxDOT IAC 2025-26 - General/Data-Dashboard-Boilerplate/Boilerplate" && npm run dev`
+- **URL**: http://localhost:5173
+- **Build**: Always run Vite from the `C:` drive path (not `X:`) due to mapped-drive path resolution bugs.
+
+## Audit Command Bundle (Before/After Dataset Swaps)
+
+Run these from `Boilerplate/`:
+
+- `npm run check:schema` - CSV schema/required-column contract checks
+- `npm run check:functional` - deep interaction checks (downloads/exports/fullscreen/filters/tables)
+- `npm run check:responsive` - responsive checks across mobile/tablet/desktop
+- `npm run check:visual` - route-level visual/runtime checks with screenshots
+- `npm run check:all` - full bundle: schema -> functional -> responsive -> visual
+
+If the dev server is not on `http://localhost:5173`, pass the URL:
+- `npm run check:all -- http://localhost:5175`
+- same pattern works for `check:functional`, `check:responsive`, and `check:visual`
+
+## Visual Verification (MANDATORY)
+
+After **every code change** that affects the UI — components, charts, layouts, styles, data rendering, or any visual element — you **MUST** run the `/visual-check` skill to verify the modification works correctly.
+
+### When to run `/visual-check`:
+- After modifying or creating any React component
+- After changing CSS/Tailwind styles
+- After modifying D3 chart code (StackedBarChart, TreeMap, LineChart, ChoroplethMap, etc.)
+- After changing data loading, filtering, or transformation logic that affects displayed content
+- After modifying routing or navigation
+- After any refactor that touches rendered output
+
+### How to run:
+1. Ensure the dev server is running at http://localhost:5173
+2. Invoke the `/visual-check` skill with `--screenshots` to capture pages
+3. Review the output for failures (JS errors, broken images, missing content, render errors)
+4. If failures are found, fix the issue and re-run until all checks pass
+
+### What it checks:
+- JS errors and uncaught exceptions
+- React/framework render errors
+- Page content presence (not blank/empty)
+- Broken images
+- Failed network requests (4xx/5xx)
+- Interactive elements exist
+- Image accessibility (alt text)
+- Full-page screenshots for visual review
+
+### Do NOT skip visual verification:
+- Even for "small" changes — a one-line CSS tweak can break layout
+- Even for "safe" refactors — verify the output hasn't changed
+- If the dev server isn't running, start it first before checking
