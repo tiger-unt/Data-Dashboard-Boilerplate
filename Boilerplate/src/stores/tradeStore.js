@@ -163,11 +163,12 @@ export const useTradeStore = create((set) => ({
   loadData: async () => {
     set({ loading: true, error: null })
     try {
+      const base = import.meta.env.BASE_URL
       const [usAgg, txPorts, usState, master] = await Promise.all([
-        d3.csv('/data/us_aggregated.csv', d3.autoType),
-        d3.csv('/data/tx_border_ports.csv', d3.autoType),
-        d3.csv('/data/bts_us_state.csv', d3.autoType),
-        d3.csv('/data/master_data.csv', d3.autoType),
+        d3.csv(`${base}data/us_aggregated.csv`, d3.autoType),
+        d3.csv(`${base}data/tx_border_ports.csv`, d3.autoType),
+        d3.csv(`${base}data/bts_us_state.csv`, d3.autoType),
+        d3.csv(`${base}data/master_data.csv`, d3.autoType),
       ])
 
       // ── STEP 3: Column normalization ────────────────────────────────────

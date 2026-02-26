@@ -23,7 +23,7 @@
  *   3. Remove the corresponding navItems entry in MainNav.jsx
  */
 import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useTradeStore } from '@/stores/tradeStore'
 import ErrorBoundary from '@/components/ui/ErrorBoundary'
 import PageWrapper from '@/components/layout/PageWrapper'
@@ -68,8 +68,8 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppContent />
-    </BrowserRouter>
+    </HashRouter>
   )
 }

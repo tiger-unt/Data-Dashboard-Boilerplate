@@ -32,7 +32,7 @@ export default function SiteHeader() {
         {/* Logo + Title */}
         <div className="flex items-center gap-4 min-w-0">
           <img
-            src="/assets/Logos/TxDOT-Logo-Vertical-RGB.svg"
+            src={`${import.meta.env.BASE_URL}assets/Logos/TxDOT-Logo-Vertical-RGB.svg`}
             alt="TxDOT"
             className="h-12 md:h-14 w-auto flex-shrink-0"
             onError={(e) => {
